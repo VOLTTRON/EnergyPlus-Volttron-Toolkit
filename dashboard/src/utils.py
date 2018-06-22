@@ -7,8 +7,8 @@ def format_ts(ts):
 
 
 def get_sim_folder_path():
-    return '/Users/ngoh511/Documents/projects/PycharmProjects/volttron_ep_toolkit/dashboard/src/simulations'
-    #return '/home/vuser/volttron/simulations/'
+    #return '/Users/ngoh511/Documents/projects/PycharmProjects/volttron_ep_toolkit/dashboard/src/simulations'
+    return '/home/vuser/volttron/simulations/'
 
 
 def get_sim_file_path(bldg, sim, baseline=False):

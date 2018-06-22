@@ -93,7 +93,7 @@ class RpcProxy(object):
         """
         try:
             self.rpc_call(PLATFORM_MARKET_SERVICE, 'make_offer', market_name, buyer_seller,
-                              curve.tuppleize()).get(timeout=5.0)
+                              curve.tuppleize()).get(timeout=10.0)
             result = (True, None)
             if self.verbose_logging:
                 _log.debug("Market: {} {} has made an offer Curve: {}".format(market_name,

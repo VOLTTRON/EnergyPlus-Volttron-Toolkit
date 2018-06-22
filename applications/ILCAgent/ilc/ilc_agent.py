@@ -612,7 +612,7 @@ class ILCAgent(Agent):
             except:
                 _log.debug("Unable to publish average power information.  Input data may not contain metadata.")
             if self.simulation_running:
-                gevent.sleep(1)
+                gevent.sleep(5)
                 self.vip.pubsub.publish("pubsub", "applications/ilc/advance", headers={}, message={})
 
     def check_load(self, bldg_power, current_time):
@@ -682,19 +682,19 @@ class ILCAgent(Agent):
             try:
                 if self.kill_signal_received:
                     break
-                result = self.vip.rpc.call(device_actuator, "request_new_schedule",
-                                           self.agent_id, device, "HIGH", schedule_request).get(timeout=5)
+                # result = self.vip.rpc.call(device_actuator, "request_new_schedule",
+                #                          self.agent_id, device, "HIGH", schedule_request).get(timeout=5)
             except RemoteError as ex:
                 _log.warning("Failed to schedule device {} (RemoteError): {}".format(device, str(ex)))
                 continue
 
-            if result["result"] == "FAILURE":
-                _log.warn("Failed to schedule device (unavailable) " + device)
-                already_handled[device] = False
-            else:
-                already_handled[device] = True
-                self.scheduled_devices.add((device, device_actuator))
-                curtailable_device.append(item)
+            #if result["result"] == "FAILURE":
+            #    _log.warn("Failed to schedule device (unavailable) " + device)
+            #    already_handled[device] = False
+            #else:
+            already_handled[device] = True
+            self.scheduled_devices.add((device, device_actuator))
+            curtailable_device.append(item)
 
         return curtailable_device
 
