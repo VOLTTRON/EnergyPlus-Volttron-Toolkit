@@ -1,0 +1,34 @@
+{
+    "campus": "PNNL",
+    "building": "BUILDING1",
+        "power_meter": {
+            "device": "METERS",
+            "point": "WholeBuildingPower"
+        },
+    "agent_id": "BUILDING1 ILC",
+    "demand_limit": 32000.0,
+    "simulation_running": true,
+    "curtailment_time": 20,
+    "curtailment_confirm": 5,
+    "curtailment_break": 20,
+    "average_building_power_window": 15,
+
+    "stagger_release": true,
+    "stagger_off_time": false,
+    "application_category": "Load Control",
+    "application_name": "Intelligent Load Control",
+    "clusters": [ 
+        {
+            "device_curtailment_file": "/home/vuser/volttron/config/ilc/building1/vav_curtailment_config",
+            "device_criteria_file": "/home/vuser/volttron/config/ilc/building1/vav_criteria_config",
+            "pairwise_criteria_file": "/home/vuser/volttron/config/ilc/building1/vav_criteria_matrix.json",
+            "cluster_priority": 0.75
+        },
+        {
+            "device_curtailment_file": "/home/vuser/volttron/config/ilc/building1/lighting_curtailment_config",
+            "device_criteria_file": "/home/vuser/volttron/config/ilc/building1/lighting_criteria_config",
+            "pairwise_criteria_file": "/home/vuser/volttron/config/ilc/building1/lighting_criteria_matrix.json",
+            "cluster_priority": 0.25
+        }
+    ]
+ }

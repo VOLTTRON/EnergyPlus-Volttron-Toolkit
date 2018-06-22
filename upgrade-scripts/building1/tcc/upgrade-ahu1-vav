@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+
+# Build a temp file string for use with the configuration
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav100 \
+     --config config/tcc/building1/vav100-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/VAVAgent \
+    -i platform.vav102 \
+    --config config/tcc/building1/vav102-config \
+    --tag vav \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav118 \
+     --config config/tcc/building1/vav118-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav119 \
+     --config config/tcc/building1/vav119-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav120 \
+     --config config/tcc/building1/vav120-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav121 \
+     --config config/tcc/building1/vav121-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav123a \
+     --config config/tcc/building1/vav123a-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/VAVAgent \
+    -i platform.vav123b \
+    --config config/tcc/building1/vav123b-config \
+    --tag vav \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav127a \
+     --config config/tcc/building1/vav127a-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav127b \
+     --config config/tcc/building1/vav127b-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav129 \
+     --config config/tcc/building1/vav129-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav131 \
+     --config config/tcc/building1/vav131-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav133 \
+     --config config/tcc/building1/vav133-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/VAVAgent \
+    -i platform.vav136 \
+    --config config/tcc/building1/vav136-config \
+    --tag vav \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav142 \
+     --config config/tcc/building1/vav142-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav143 \
+     --config config/tcc/building1/vav143-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav150 \
+     --config config/tcc/building1/vav150-config \
+     --tag vav \
+     --start \
+     --force

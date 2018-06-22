@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+python ./scripts/install-agent.py \
+    -s services/core/MarketServiceAgent \
+    -i platform.market \
+    --config config/tcc/building1/market-service-config \
+    --tag market-service \
+    --start \
+    --force
+
+

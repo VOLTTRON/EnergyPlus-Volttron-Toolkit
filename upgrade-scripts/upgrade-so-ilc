@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+. env/bin/activate
+. upgrade-scripts/small_office/energyplus/upgrade-energyplus_ilc
+. upgrade-scripts/small_office/ilc/upgrade-ilc

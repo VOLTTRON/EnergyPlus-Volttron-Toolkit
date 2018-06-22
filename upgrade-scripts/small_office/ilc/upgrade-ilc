@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+python ./scripts/install-agent.py \
+    -s applications/ILCAgent \
+    -i platform.so_ilc \
+    --config config/ilc/small_office/so_ilc_config \
+    --tag ilc \
+    --start \
+    --force

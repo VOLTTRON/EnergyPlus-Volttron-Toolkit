@@ -1,0 +1,586 @@
+{
+    "AHU1/VAV100": {
+        "VAV100": { 
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Lobby",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV102": {
+        "VAV102": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU3/VAV104": {
+        "VAV104": { 
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Lobby",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU3/VAV105": {
+        "VAV105": { 
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Lobby",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU3/VAV107": {
+        "VAV107": { 
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Lobby",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU3/VAV108": {
+        "VAV108": { 
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Lobby",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU3/VAV116": {
+        "VAV116": { 
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Lobby",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+   "AHU3/VAV112": {
+        "VAV112": { 
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Lobby",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV118": {
+        "VAV118": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV119": {
+        "VAV119": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV120": {
+        "VAV120": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV121": {
+        "VAV121": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV123A": {
+        "VAV123A": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV123B": {
+        "VAV123B": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV127A": {
+        "VAV127A": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV127B": {
+        "VAV127B": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV129": {
+        "VAV129": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV131": {
+        "VAV131": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV133": {
+        "VAV133": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV136": {
+        "VAV136": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV142": {
+        "VAV142": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV143": {
+        "VAV143": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU1/VAV150": {
+        "VAV150": {
+            "available_zone_airflow_ratio": {
+                "operation": "TerminalBoxDamperPosition/0.3 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["TerminalBoxDamperPosition"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU2": {
+        "AHU2": {
+            "available_zone_airflow_ratio": {
+                "operation": "SupplyAirFlow/1000.0 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["SupplyAirFlow"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "AHU4": {
+        "AHU4": {
+            "available_zone_airflow_ratio": {
+                "operation": "SupplyAirFlow/1550.0 - 1.0",
+                "operation_type": "formula",
+                "operation_args": ["SupplyAirFlow"],
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "zonetemperature_setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneCoolingTemperatureSetPoint": "nc", "ZoneTemperature": "always"},
+                "minimum": 0.0,
+                "maximum": 10.0
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "mappers": {
+        "zone_type": {
+            "Private Office": 1,
+            "Office": 3,
+            "Conference Room": 5,
+            "Lobby": 9,
+            "Restroom": 9
+        }
+    }
+}

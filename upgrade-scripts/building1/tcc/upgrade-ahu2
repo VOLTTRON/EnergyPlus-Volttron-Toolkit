@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/AHUAgent \
+    -i platform.ahu2 \
+    --config config/tcc/building1/ahu2-config \
+    --tag ahu \
+    --start \
+    --force

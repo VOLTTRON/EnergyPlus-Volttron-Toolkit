@@ -1,0 +1,389 @@
+{
+    "LIGHTING/ZONE102": {
+        "ZONE102": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.3173,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Conference Room",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE104": {
+        "ZONE104": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.3173,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Conference Room",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE105": {
+        "ZONE105": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.2979,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Conference Room",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE107": {
+        "ZONE107": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.06,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Conference Room",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE108": {
+        "ZONE108": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.2172,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Conference Room",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE112": {
+        "ZONE112": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.1316,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE116": {
+        "ZONE116": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.1316,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE118": {
+        "ZONE118": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.205,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE119": {
+        "ZONE119": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.205,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE120": {
+        "ZONE120": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.205,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE123A": {
+        "ZONE123A": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.4386,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE123B": {
+        "ZONE123B": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.4386,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE127A": {
+        "ZONE127A": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 1.65,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE127B": {
+        "ZONE127B": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 1.65,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE129": {
+        "ZONE129": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.125,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE131": {
+        "ZONE131": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.125,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE133": {
+        "ZONE133": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.1687,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE136": {
+        "ZONE136": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.125,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE142": {
+        "ZONE142": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.1769,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE143": {
+        "ZONE143": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.125,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "LIGHTING/ZONE150": {
+        "ZONE150": {
+            "lighting_level": {
+                "operation": "DimmingLevelOutput",
+                "operation_type": "formula",
+                "operation_args": ["DimmingLevelOutput"]
+            },
+            "rated_power": {
+                "value": 0.125,
+                "operation_type": "constant"
+            },
+            "room_type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            }
+        }
+    },
+    "mappers": {
+        "zone_type": {
+            "Private Office": 1,
+            "Office": 3,
+            "Conference Room": 5,
+            "Lobby": 9,
+            "Restroom": 9
+        }
+    }
+}

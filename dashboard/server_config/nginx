@@ -1,0 +1,21 @@
+# The upstream component nginx needs to connect to
+#TODO: One big question is why Nginx let the /data* pass through while the other words, say api, can't
+#       For example: location /api { ... } would not work
+
+server {
+    server_name localhost;
+
+    root /home/vuser/volttron/dashboard/static;
+
+    location ^~ /api/ {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/vuser/volttron/dashboard/log/uwsgi.log;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html =404;
+    }
+
+
+}
+

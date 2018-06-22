@@ -1,0 +1,13 @@
+{
+    "lighting_level": {
+    },
+
+    "rated_power":{
+        "lighting_level": 2
+    },
+
+    "room_type": {
+        "lighting_level": 4,
+        "rated_power": 3
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "campus": "PNNL",
+    "building": "SMALL_OFFICE",
+        "power_meter": {
+            "device": "METERS",
+            "point": "WholeBuildingPower"
+        },
+    "agent_id": "SMALL OFFICE",
+    "demand_limit": 54000.0,
+    "simulation_running": true,
+    "curtailment_time": 15,
+    "curtailment_confirm": 5,
+    "curtailment_break": 20,
+    "average_building_power_window": 15,
+
+    "stagger_release": true,
+    "stagger_off_time": true,
+    "application_category": "Load Control",
+    "application_name": "Intelligent Load Control",
+    "clusters": [ 
+        {
+            "device_curtailment_file": "/home/vuser/volttron/config/ilc/small_office/hp_curtailment_config",
+            "device_criteria_file": "/home/vuser/volttron/config/ilc/small_office/hp_criteria_config",
+            "pairwise_criteria_file": "/home/vuser/volttron/config/ilc/small_office/hp_criteria_matrix.json",
+            "cluster_priority": 0.50
+        },
+        {
+            "device_curtailment_file": "//home/vuser/volttron/config/ilc/small_office/lighting_curtailment_config",
+            "device_criteria_file": "/home/vuser/volttron/config/ilc/small_office/lighting_criteria_config",
+            "pairwise_criteria_file": "/home/vuser/volttron/config/ilc/small_office/lighting_criteria_matrix.json",
+            "cluster_priority": 0.50
+        }
+    ]
+ }

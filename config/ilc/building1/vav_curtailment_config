@@ -1,0 +1,352 @@
+{
+    "AHU1/VAV100": {
+        "VAV100": { 
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"], 
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 3.0,
+                "load": 0.5
+            }
+        }
+    },
+    "AHU1/VAV102": {
+        "VAV102": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"], 
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 3.0,
+                "load": 0.2
+            }
+        }
+    },
+    "AHU3/VAV104": {
+        "VAV104": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.05
+            }
+        }
+    },
+    "AHU3/VAV105": {
+        "VAV105": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.2
+            }
+        }
+    },
+    "AHU3/VAV107": {
+        "VAV107": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.05
+            }
+        }
+    },
+    "AHU3/VAV108": {
+        "VAV108": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.25
+            }
+        }
+    },
+    "AHU3/VAV112": {
+        "VAV112": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.025
+            }
+        }
+    },
+    "AHU3/VAV116": {
+        "VAV116": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.025
+            }
+        }
+    },
+    "AHU1/VAV118": {
+        "VAV118": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.3
+            }
+        }
+    },
+    "AHU1/VAV119": {
+        "VAV119": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.025
+            }
+        }
+    },
+    "AHU1/VAV120": {
+        "VAV120": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.025
+            }
+        }
+    },
+    "AHU1/VAV121": {
+        "VAV121": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.05
+            }
+        }
+    },
+    "AHU1/VAV123A": {
+        "VAV123A": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.15
+            }
+        }
+    },
+    "AHU1/VAV123B": {
+        "VAV123B": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.15
+            }
+        }
+    },
+    "AHU1/VAV127A": {
+        "VAV127A": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"], 
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.15
+            }
+        }
+    },
+    "AHU1/VAV127B": {
+        "VAV127B": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"], 
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.25
+            }
+        }
+    },
+    "AHU1/VAV129": {
+        "VAV129": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.5
+            }
+        }
+    },
+    "AHU1/VAV131": {
+        "VAV131": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.02
+            }
+        }
+    },
+    "AHU1/VAV133": {
+        "VAV133": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"], 
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.1
+            }
+        }
+    },
+    "AHU1/VAV136": {
+        "VAV136": {
+            "device_status": {
+                "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.025
+            }
+        }
+    },
+    "AHU1/VAV142": {
+        "VAV142": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.15
+            }
+        }
+    },
+    "AHU1/VAV143": {
+        "VAV143": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.0,
+                "load": 0.0375
+            }
+        }
+    },
+    "AHU1/VAV150": {
+        "VAV150": {
+            "device_status": {
+                    "condition": ["OccupancyMode>0", "&", "TerminalBoxDamperPosition>0.1"],
+                    "device_status_args": ["OccupancyMode", "TerminalBoxDamperPosition"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.05
+            }
+        }
+    },
+    "AHU2": {
+        "AHU2": {
+            "device_status": {
+                "condition": ["SupplyFanStatus>0", "&", "ZoneAirFlow>0.45"],
+                "device_status_args": ["SupplyFanStatus", "ZoneAirFlow"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.05
+            }
+        }
+    },
+    "AHU4": {
+        "AHU4": {
+            "device_status": {
+                "condition": ["SupplyFanStatus>0"],
+                "device_status_args": ["SupplyFanStatus"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 2.5,
+                "load": 0.05
+            }
+        }
+    }
+}

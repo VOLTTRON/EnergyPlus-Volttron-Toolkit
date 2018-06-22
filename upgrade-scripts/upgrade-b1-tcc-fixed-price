@@ -1,0 +1,16 @@
+#!/bin/bash
+
+. env/bin/activate
+. upgrade-scripts/building1/tcc/upgrade-ahu1-vav
+. upgrade-scripts/building1/tcc/upgrade-ahu2-vav
+. upgrade-scripts/building1/tcc/upgrade-ahu3-vav
+. upgrade-scripts/building1/tcc/upgrade-ahu4-vav
+. upgrade-scripts/building1/tcc/upgrade-ahu1
+. upgrade-scripts/building1/tcc/upgrade-ahu2
+. upgrade-scripts/building1/tcc/upgrade-ahu3
+. upgrade-scripts/building1/tcc/upgrade-ahu4
+. upgrade-scripts/building1/tcc/upgrade-light
+. upgrade-scripts/building1/tcc/upgrade-electric-seller-fixed-price
+. upgrade-scripts/building1/energyplus/upgrade-energyplus_tcc
+sleep 75
+. upgrade-scripts/building1/tcc/upgrade-market-service-fp

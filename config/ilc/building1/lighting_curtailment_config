@@ -1,0 +1,360 @@
+{
+    "LIGHTING/ZONE102": {
+        "ZONE102": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.3173*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE104": {
+        "ZONE104": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.2979*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE105": {
+        "ZONE105": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.2979*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE107": {
+        "ZONE107": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.06*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE108": {
+        "ZONE108": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.2172*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE112": {
+        "ZONE112": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput> 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput- 0.7)*0.1316*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE116": {
+        "ZONE116": {
+            "device_status": {
+                    "condition": "DimmingLevelOutput > 0.7", 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.586*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE118": {
+        "ZONE118": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.205*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE119": {
+        "ZONE119": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.205*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE120": {
+        "ZONE120": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.205*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE123A": {
+        "ZONE123A": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.4386*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE123B": {
+        "ZONE123B": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.4386*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE127A": {
+        "ZONE127A": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*1.65*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE127B": {
+        "ZONE127B": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*1.65*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE129": {
+        "ZONE129": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.125*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE131": {
+        "ZONE131": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.125*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE133": {
+        "ZONE133": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.1687*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE136": {
+        "ZONE136": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.125*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE142": {
+        "ZONE142": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.1769*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE143": {
+        "ZONE143": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.125*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    },
+    "LIGHTING/ZONE150": {
+        "ZONE150": {
+            "device_status": {
+                    "condition": ["DimmingLevelOutput > 0.7"], 
+                    "device_status_args": ["DimmingLevelOutput"]
+            },
+            "curtail": {
+                "point": "DimmingLevelOutput",
+                "value": 0.7,
+                "curtailment_method": "value",
+                "load": {
+                    "operation": "(DimmingLevelOutput-0.7)*0.125*0.01",
+                    "equation_args": ["DimmingLevelOutput"]
+                }
+            }
+        }
+    }
+}
+

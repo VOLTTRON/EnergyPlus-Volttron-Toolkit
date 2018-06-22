@@ -1,0 +1,142 @@
+{
+    "HP1": {
+        "HP1": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 2809.8
+            }
+        }
+    },
+    "HP2": {
+        "HP2": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 3819.8
+            }
+        }
+    },
+    "HP3": {
+        "HP3": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 2640.2
+            }
+        }
+    },
+    "HP4": {
+        "HP4": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 3915.2
+            }
+        }
+    },
+    "HP5": {
+        "HP5": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 12000.0
+            }
+        }
+    },
+    "HP6": {
+        "HP6": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 2116.3
+            }
+        }
+    },
+    "HP7": {
+        "HP7": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 2840.9
+            }
+        }
+    },
+    "HP8": {
+        "HP8": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 1727.42
+            }
+        }
+    },
+    "HP9": {
+        "HP9": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 2852.3
+            }
+        }
+    },
+    "HP10": {
+        "HP10": { 
+            "device_status": {
+                "condition": ["FirstStageCooling"], 
+                "device_status_args": ["FirstStageCooling"]
+            },
+            "curtail": {
+                "point": "ZoneCoolingTemperatureSetPoint",
+                "curtailment_method": "offset",
+                "offset": 1.1,
+                "load": 7943.5
+            }
+        }
+    }
+}

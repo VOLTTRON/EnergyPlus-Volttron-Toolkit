@@ -1,0 +1,41 @@
+Download and install VirtualBox (Minimum version: 5.2.*) at https://www.virtualbox.org/wiki/Downloads
+
+
+
+To login to the machine:
+username: vuser
+password: volttron
+
+
+
+
+To get new updates:
+1. Open a terminal and go to volttron directory: "cd volttron"
+2. Type: "make update"
+
+
+
+To start an experiment:
+1. Open a terminal and go to volttron directory: "cd volttron"
+2. Type:
+  - "make so_ilc": start small office ILC
+  - "make b1_ilc": start building1 ILC
+  - "make b1_tcc_fd": start building TCC fixed demand case
+  - "make b1_tcc_fp": start building TCC fixed price case
+3. Open a web browser and go to "http://localhost/" and refresh the page
+4. Pick a simulation to see result. A simulation name is the datetime (YYYYMMDD-HHMM) when the simulation was started.
+
+
+
+To remove experiments:
+1. Open a terminal and go to volttron directory: "cd volttron"
+2. Type:
+  - "make clean_sm_ilc": clean small office ILC experiments
+  - "make clean_b1_ilc": clean building1 ILC experiments
+  - "make clean_b1_tcc": clean building1 TCC experiments
+  - "make clean_all": clean all experiments
+
+
+
+To view latest help:
+The latest help is posted in the README file on desktop

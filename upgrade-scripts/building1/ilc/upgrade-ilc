@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+python ./scripts/install-agent.py \
+    -s applications/ILCAgent \
+    -i platform.b1_ilc \
+    --config config/ilc/building1/b1_ilc_config \
+    --tag ilc \
+    --start \
+    --force

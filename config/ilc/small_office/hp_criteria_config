@@ -1,0 +1,351 @@
+{
+    "HP1": {
+        "HP1": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 2.8,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP2": {
+        "HP2": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 3.8,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP3": {
+        "HP3": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 2.6,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP4": {
+        "HP4": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 4.0,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Conference Room",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP5": {
+        "HP5": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 12.0,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP6": {
+        "HP6": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 2.1,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP7": {
+        "HP7": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 2.8,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP8": {
+        "HP8": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 1.7,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Private Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP9": {
+        "HP9": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 2.9,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Conference Room",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "HP10": {
+        "HP10": {
+            "zonetemperature-setpoint":{
+                "operation": "1/(ZoneTemperature - ZoneCoolingTemperatureSetPoint)",
+                "operation_type": "formula",
+                "operation_args": {"ZoneTemperature": "always", "ZoneCoolingTemperatureSetPoint": "nc"},
+                "minimum": 0,
+                "maximum": 10
+            },
+            "rated-power": {
+                "on_value": 7.9,
+                "off_value": 0.0,
+                "operation_type": "status",
+                "point_name": "FirstStageCooling"
+            },
+            "room-type": {
+                "map_key": "Office",
+                "operation_type": "mapper",
+                "dict_name": "zone_type"
+            },
+            "stage": {
+                "value": 1.0,
+                "operation_type": "constant"
+            },
+            "history-zonetemperature": {
+                "comparison_type": "direct",
+                "operation_type": "history",
+                "point_name": "ZoneTemperature",
+                "previous_time": 15,
+                "minimum": 0,
+                "maximum": 10
+            }
+        }
+    },
+    "mappers": {
+        "zone_type": {
+            "Private Office": 1,
+            "Office": 3,
+            "Conference Room": 5,
+            "Lobby": 9,
+            "Restroom": 9
+        }
+    }
+}

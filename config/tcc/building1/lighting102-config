@@ -1,0 +1,17 @@
+{
+    "campus": "PNNL",
+    "building": "BUILDING1",
+    "schedule_device": "AHU1",
+    "schedule_point": "SupplyFanStatus",
+
+    "device": "LIGHTING",
+    "path": "ZONE102",
+    "lighting_level_stpt": "DimmingLevelOutput",
+
+    "market_name": "electric",
+    "agent_name":"b1_102lighting",
+
+    "default_dimming_level": 90.0,
+    "min_occupied_lighting_level": 70.0,
+    "Pabsnom": 317.29
+}

@@ -1,0 +1,11 @@
+{
+    "zonetemperature_setpoint": {
+        "room_type": 0.5,
+        "available_zone_airflow_ratio": 2.0
+    },
+    "room_type": {
+        "available_zone_airflow_ratio": 2.0
+    },
+    "available_zone_airflow_ratio": {
+    }
+}

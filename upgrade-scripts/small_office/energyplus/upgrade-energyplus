@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Build a temp file string for use with the configuration
+python ./scripts/install-agent.py \
+    -s applications/energyplusagent \
+    -i platform.actuator \
+    --tag eplus \
+    --config config/energyplus/small_office/ep_small_office_ilc.config \
+    --start \
+    --force
+
+

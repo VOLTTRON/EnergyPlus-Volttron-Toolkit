@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Build a temp file string for use with the configuration
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/MeterAgent \
+    -i platform.meter \
+    --config config/tcc/building1/meter-config-fixed-price \
+    --tag electric_seller \
+    --start \
+    --force
+

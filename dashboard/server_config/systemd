@@ -1,0 +1,18 @@
+[Unit]
+Description=Volttron EPlus toolkit dashboard
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+WorkingDirectory=/home/vuser/volttron/dashboard
+Restart=always
+RestartSec=10
+SyslogIdentifier=dashboard
+User=vuser
+ExecStart=/home/vuser/.local/bin/uwsgi --ini /home/vuser/volttron/dashboard/server_config/uwsgi.ini -w powerflask
+
+
+
+#www-data not work since it's not loaded
+

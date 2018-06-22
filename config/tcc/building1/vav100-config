@@ -1,0 +1,37 @@
+{
+    "campus": "PNNL",
+    "building": "BUILDING1",
+    "parent_device": "AHU1",
+    "device": "VAV100",
+	"x0": -34438.8757932,
+	"x1": -4948.49049875,
+	"x2": 15.4476635321,
+	"x3": 6385.51115627,
+	"x4": -0.0132413047839,
+	"c0": 4.6114476703,
+	"c1": 0.807047515247,
+	"c2": -0.0015315526652,
+	"c3": 0.000131273940558,
+	"c4": 3.85267680555e-06,
+	"market_name": "air",
+	"agent_name": "b1_vav100",
+	"tIn": 21.11,
+	"tMin": 19.0,
+	"tMax": 23.0,
+	"mDotMin": 0.01160712,
+	"mDotMax": 0.0386904,
+
+	"device_points": {
+        "zone_dat": "ZoneDischargeAirTemperature",
+        "zone_airflow": "ZoneAirFlow",
+        "zone_temperature": "ZoneTemperature"
+    },
+
+    "parent_device_points": {
+        "supply_fan_status": "SupplyFanStatus",
+        "outdoor_air_temperature": "OutdoorAirTemperature"
+    },
+
+    "setpoint": "ZoneCoolingTemperatureSetPoint",
+    "sim_flag": true
+}

@@ -1,0 +1,24 @@
+{
+    "campus": "CAMPUS",
+    "building": "BUILDING",
+    "power_meter": {
+        "device": "METERS",
+        "point": "WholeBuildingPower"
+    },
+    "agent_id": "ILC",
+    "demand_limit": 30.0,
+    "curtailment_time": 20.0,
+    "curtailment_confirm": 5.0,
+    "curtailment_break": 20.0,
+    "average_building_power_window": 15.0,
+    "stagger_release": true,
+    "stagger_off_time": true,
+    "clusters": [ 
+        {
+            "device_curtailment_file": "curtailment_config",
+            "device_criteria_file": "criteria_config",
+            "pairwise_criteria_file": "pairwise_criteria.json",
+            "cluster_priority": 1.0
+        }
+    ]
+ }

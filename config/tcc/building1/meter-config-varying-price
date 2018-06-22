@@ -1,0 +1,90 @@
+{
+	"demand_limit": false,
+	"demand_limit_threshold": 6000,
+	"market_name": "electric",
+	"campus": "PNNL",
+	"building": "BUILDING1",
+	"agent_name": "b1_meter",
+	"price_file": "/home/volttron/volttron_ep_toolkit/price.csv",
+	"devices": {
+		"LIGHTING/ZONE102": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE104": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE105": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE107": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE108": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE112": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE116": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE118": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE119": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE120": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE123A": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE123B": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE127A": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE127B": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE129": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE131": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE133": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE136": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE142": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE143": {
+			"points": ["Power"]
+		},
+		"LIGHTING/ZONE150": {
+			"points": ["Power"]
+		},
+		"AHU1": {
+			"points": ["SupplyFanPower"]
+		},
+		"AHU2": {
+			"points": ["SupplyFanPower"]
+		},
+		"AHU3": {
+			"points": ["SupplyFanPower"]
+		},
+		"AHU4": {
+			"points": ["SupplyFanPower"]
+		},
+		"Chiller": {
+			"points": ["Power"],
+			"conversion": "Power/6.16"
+		}
+	}
+}

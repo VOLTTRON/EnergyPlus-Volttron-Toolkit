@@ -1,0 +1,6 @@
+{
+    "market_period": 20,
+    "reservation_delay": 0,
+    "offer_delay": 7,
+    "verbose_logging": false
+}

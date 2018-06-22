@@ -1,0 +1,169 @@
+#!/usr/bin/env bash
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light129 \
+    --config config/tcc/building1/lighting129-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light150 \
+    --config config/tcc/building1/lighting150-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light136 \
+    --config config/tcc/building1/lighting136-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light142 \
+    --config config/tcc/building1/lighting142-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light143 \
+    --config config/tcc/building1/lighting143-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light133 \
+    --config config/tcc/building1/lighting133-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light131 \
+    --config config/tcc/building1/lighting131-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light127B \
+    --config config/tcc/building1/lighting127b-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light127A \
+    --config config/tcc/building1/lighting127a-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light123A \
+    --config config/tcc/building1/lighting123a-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light123B \
+    --config config/tcc/building1/lighting123b-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light120 \
+    --config config/tcc/building1/lighting120-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light119 \
+    --config config/tcc/building1/lighting119-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light118 \
+    --config config/tcc/building1/lighting118-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light116 \
+    --config config/tcc/building1/lighting116-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light112 \
+    --config config/tcc/building1/lighting112-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light108 \
+    --config config/tcc/building1/lighting108-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light107 \
+    --config config/tcc/building1/lighting107-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light105 \
+    --config config/tcc/building1/lighting105-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light104 \
+    --config config/tcc/building1/lighting104-config \
+    --tag light \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/LightingAgent \
+    -i platform.light102 \
+    --config config/tcc/building1/lighting102-config \
+    --tag light \
+    --start \
+    --force

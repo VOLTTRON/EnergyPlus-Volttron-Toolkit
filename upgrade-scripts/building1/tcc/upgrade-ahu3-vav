@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Build a temp file string for use with the configuration
+
+ python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav104 \
+     --config config/tcc/building1/vav104-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+    -s applications/MarketAgents/VAVAgent \
+    -i platform.vav105\
+    --config config/tcc/building1/vav105-config \
+    --tag vav \
+    --start \
+    --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav107 \
+     --config config/tcc/building1/vav107-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav108\
+     --config config/tcc/building1/vav108-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav112\
+     --config config/tcc/building1/vav112-config \
+     --tag vav \
+     --start \
+     --force
+
+python ./scripts/install-agent.py \
+     -s applications/MarketAgents/VAVAgent \
+     -i platform.vav116\
+     --config config/tcc/building1/vav116-config \
+     --tag vav \
+     --start \
+     --force
