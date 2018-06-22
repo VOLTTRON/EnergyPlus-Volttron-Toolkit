@@ -4,9 +4,6 @@ target_dir := $(shell date +%Y%m%d_%H%M%S)
 b1_ilc_dir := $(base_dir)/building1_ilc
 b1_ilc_target_dir := $(b1_ilc_dir)/$(target_dir)
 
-b1_tcc_fd_dir := $(base_dir)/building1_tcc_fd
-b1_tcc_fd_target_dir := $(b1_tcc_fd_dir)/$(target_dir)
-
 b1_tcc_fp_dir := $(base_dir)/building1_tcc_fp
 b1_tcc_fp_target_dir := $(b1_tcc_fp_dir)/$(target_dir)
 
@@ -55,23 +52,6 @@ b1_ilc: run_base_building1
 	@echo "Cleaning up..."
 	. env/bin/activate && vctl shutdown --platform -t 100 2>/dev/null; true
 
-b1_tcc_fd: run_base_building1
-	mkdir -p $(b1_tcc_fd_target_dir)
-	cp eplus/baseline_eplusout.sql $(b1_tcc_fd_target_dir)
-	. upgrade-scripts/upgrade-b1-tcc-fixed-demand
-	counter=1; while ! [ -f eplus/eplusout.csv ]; do counter=`expr $$counter + 1`; echo "Simulation is in progress... Do not close this terminal or start another simulation. Time elapsed: $$counter second."; sleep 1; done 
-	@echo "Writing result to disk..."
-	sleep 10
-	cp eplus/BUILDING1.idf $(b1_tcc_fd_target_dir)
-	cp -r config/tcc/building1/. $(b1_tcc_fd_target_dir)
-	cp eplus/eplusout.sql $(b1_tcc_fd_target_dir)
-	cp eplus/eplusout.csv $(b1_tcc_fd_target_dir)
-	cp eplus/tccpower.csv $(b1_tcc_fd_target_dir)
-	cp eplus/tccpower_baseline.csv $(b1_tcc_fd_target_dir)
-	mv volttron.log $(b1_tcc_fd_target_dir)
-	@echo "You can view result at http://localhost"
-	@echo "Cleaning up..."
-	. env/bin/activate && vctl shutdown --platform -t 100 2>/dev/null; true
 
 b1_tcc_fp: run_base_building1
 	mkdir -p $(b1_tcc_fp_target_dir)
@@ -113,13 +93,11 @@ clean_sm_ilc:
 clean_b1_ilc:
 	rm -rf $(b1_ilc_dir)
 
-clean_b1_tcc_fd:
-	rm -rf $(b1_tcc_fd_dir)
 
 clean_b1_tcc_fp:
 	rm -rf $(b1_tcc_fp_dir)
 
-clean_all: clean_sm_ilc clean_b1_ilc clean_b1_tcc_fd clean_b1_tcc_fp
+clean_all: clean_sm_ilc clean_b1_ilc clean_b1_tcc_fp
 	@echo "Clean all completed."
 
 update:
