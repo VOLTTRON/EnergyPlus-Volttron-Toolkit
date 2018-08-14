@@ -65,7 +65,7 @@ from volttron.platform.agent.base_market_agent import MarketAgent
 from volttron.platform.agent.base_market_agent.poly_line import PolyLine
 from volttron.platform.agent.base_market_agent.point import Point
 from volttron.platform.agent.base_market_agent.buy_sell import BUYER
-from pnnl.models.firstorderzone import FirstOrderZone
+from pnnl.models.grayboxzone import GrayBoxZone
 import numpy as np
 
 _log = logging.getLogger(__name__)
@@ -92,16 +92,20 @@ def vav_agent(config_path, **kwargs):
         _log.info("Using defaults for starting configuration.")
 
     market_name = config.get('market_name')
-    x0 = config.get('x0', 0)
-    x1 = config.get('x1', 0)
-    x2 = config.get('x2', 0)
-    x3 = config.get('x3', 0)
-    x4 = config.get('x4', 0)
-    c0 = config.get('c0', 0)
-    c1 = config.get('c1', 0)
-    c2 = config.get('c2', 0)
-    c3 = config.get('c3', 0)
-    c4 = config.get('c4', 0)
+#    x0 = config.get('x0', 0)
+#    x1 = config.get('x1', 0)
+#    x2 = config.get('x2', 0)
+#    x3 = config.get('x3', 0)
+#    x4 = config.get('x4', 0)
+#    c0 = config.get('c0', 0)
+#    c1 = config.get('c1', 0)
+#    c2 = config.get('c2', 0)
+#    c3 = config.get('c3', 0)
+#    c4 = config.get('c4', 0)
+    c=config.get('c', 4000000)
+    r=config.get('r', 0.002)
+    shgc=config.get('shgc', 0.5)
+    tMinAdj = config.get('tMin', 0)    
     tMinAdj = config.get('tMin', 0)
     tMaxAdj = config.get('tMax', 0)
     mDotMin = config.get('mDotMin', 0)
@@ -117,7 +121,8 @@ def vav_agent(config_path, **kwargs):
     setpoint = config.get('setpoint')
     activate_topic = "/".join([config.get("building", agent_name), "actuate"])
     setpoint_mode = config.get("setpoint_mode", 0)
-
+    setpoint_mode = config.get("setpoint_mode", 0)
+    modelName= config.get("modelName")
     parent_device_topic = topics.DEVICES_VALUE(campus=config.get("campus", ""),
                                                building=config.get("building", ""),
                                                unit=config.get("parent_device", ""),
@@ -137,12 +142,11 @@ def vav_agent(config_path, **kwargs):
                                            point=setpoint)
 
     verbose_logging = config.get('verbose_logging', True)
-    return VAVAgent(market_name, agent_name, x0, x1, x2, x3, x4, c0,
-                    c1, c2, c3, c4, tMinAdj, tMaxAdj, mDotMin, mDotMax,
+    return VAVAgent(market_name, agent_name, tMinAdj, tMaxAdj, mDotMin, mDotMax,
                     tIn, nonResponsive, verbose_logging, device_topic,
                     device_points, parent_device_topic, parent_device_points,
                     base_rpc_path, activate_topic, actuator, mode, setpoint_mode,
-                    sim_flag, **kwargs)
+                    sim_flag,modelName,c,r,shgc, **kwargs)
 
 
 def temp_f2c(rawtemp):
@@ -173,23 +177,13 @@ class VAVAgent(MarketAgent, FirstOrderZone):
     sells electricity for a single building at a fixed price.
     """
 
-    def __init__(self, market_name, agent_name, x0, x1, x2, x3, x4, c0, c1, c2, c3, c4,
+    def __init__(self, market_name, agent_name,
                  tMinAdj, tMaxAdj, mDotMin, mDotMax, tIn, nonResponsive, verbose_logging,
                  device_topic, device_points, parent_device_topic, parent_device_points,
-                 base_rpc_path, activate_topic, actuator, mode, setpoint_mode, sim_flag, **kwargs):
+                 base_rpc_path, activate_topic, actuator, mode, setpoint_mode, sim_flag, modelName,c,r,shgc, **kwargs):
         super(VAVAgent, self).__init__(verbose_logging, **kwargs)
         self.market_name = market_name
         self.agent_name = agent_name
-        self.x0 = x0
-        self.x1 = x1
-        self.x2 = x2
-        self.x3 = x3
-        self.x4 = x4
-        self.c0 = c0
-        self.c1 = c1
-        self.c2 = c2
-        self.c3 = c3
-        self.c4 = c4
         self.hvac_avail = 0
         self.tOut = 32
         self.zone_airflow = 10
@@ -215,7 +209,10 @@ class VAVAgent(MarketAgent, FirstOrderZone):
         self.mode = mode
         self.nonResponsive = nonResponsive
         self.sim_flag = sim_flag
-
+        self.c=c
+        self.r=r
+        self.shgc=shgc
+        self.modelName=modelName
         if self.sim_flag:
             self.actuate_enabled = 1
         else:
