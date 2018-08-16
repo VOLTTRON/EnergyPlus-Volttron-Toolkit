@@ -2,7 +2,7 @@ from pyfmi import load_fmu
 import numpy as np
 
 class GrayBoxZone(object):
-    def __init__(self):
+    def __init__(self, modelname):
         self.tOut = 20.
         self.tIn = 24.
         self.qHvacSens = 0.
@@ -14,6 +14,8 @@ class GrayBoxZone(object):
         self.r = 0.002
         self.shgc = 0.5
         self.modelName = "TestModels_MPC_R1C1HeatCool.fmu"
+
+    def create_model(self):
         self.model = load_fmu(self.modelName)
         self.model.set('C', self.c)
         self.model.set('R', self.r)

@@ -184,7 +184,6 @@ class VAVAgent(MarketAgent, GrayBoxZone):
                  device_topic, device_points, parent_device_topic, parent_device_points,
                  base_rpc_path, activate_topic, actuator, mode, setpoint_mode, sim_flag, modelName, c, r, shgc, **kwargs):
         super(VAVAgent, self).__init__(verbose_logging, **kwargs)
-        GrayBoxZone.__init__(self)
         self.market_name = market_name
         self.agent_name = agent_name
         self.hvac_avail = 0
@@ -217,6 +216,7 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         self.r = r
         self.shgc = shgc
         self.modelName = os.path.expanduser(modelName)
+        self.create_model()
         if self.sim_flag:
             self.actuate_enabled = 1
         else:
