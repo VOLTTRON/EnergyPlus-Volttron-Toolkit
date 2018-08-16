@@ -216,7 +216,7 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         self.r = r
         self.shgc = shgc
         self.modelName = os.path.expanduser(modelName)
-        self.create_model()
+        
         if self.sim_flag:
             self.actuate_enabled = 1
         else:
