@@ -30,7 +30,7 @@ class GrayBoxZone(object):
         u = np.transpose([np.asarray(timearr).flatten(),
                           np.asarray(qsol).flatten(),
                           np.asarray(tout).flatten(),
-                          qarr.flatten()])
+                          np.asarray(qarr).flatten()])
         return u
 
     def getQ(self, T_new):        
