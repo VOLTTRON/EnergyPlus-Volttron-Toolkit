@@ -67,6 +67,7 @@ from volttron.platform.agent.base_market_agent.point import Point
 from volttron.platform.agent.base_market_agent.buy_sell import BUYER
 from pnnl.models.grayboxzone import GrayBoxZone
 import numpy as np
+import os
 
 _log = logging.getLogger(__name__)
 utils.setup_logging()
@@ -215,7 +216,7 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         self.c = c
         self.r = r
         self.shgc = shgc
-        self.modelName = modelName
+        self.modelName = os.path.expanduser(modelName)
         if self.sim_flag:
             self.actuate_enabled = 1
         else:
