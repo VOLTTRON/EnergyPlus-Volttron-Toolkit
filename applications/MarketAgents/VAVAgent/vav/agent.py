@@ -262,6 +262,14 @@ class VAVAgent(MarketAgent, GrayBoxZone):
                                   callback=self.update_actuation_state,
                                   all_platforms=True)
 
+    @Core.receiver("onstop")
+    def shutdown(self, sender, **kwargs):
+        if self.actuate_enabled:
+            if self.mode == 1:
+                self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, None, external_platform='3820A').get(timeout=10)
+            else:
+                self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, self.default, external_platform='3820A').get(timeout=10)
+
     def offer_callback(self, timestamp, market_name, buyer_seller):
         result, message = self.make_offer(market_name, buyer_seller, self.create_demand_curve())
         _log.debug("{}: demand max {} and min {} at {}".format(self.agent_name,

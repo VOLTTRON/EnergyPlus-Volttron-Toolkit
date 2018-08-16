@@ -109,11 +109,10 @@ class MeterAgent(MarketAgent):
     sells electricity for a single building at a fixed price.
     """
 
-    def __init__(self, agent_name, market_name, price,verbose_logging, incoming_price_topic, base_demand_topic,**kwargs):
+    def __init__(self, agent_name, market_name, price, verbose_logging, incoming_price_topic, base_demand_topic,**kwargs):
         super(MeterAgent, self).__init__(verbose_logging, **kwargs)
         self.market_name = market_name
         self.price = price
-
         self.price_min = 10.
         self.price_max = 100.
         self.infinity = 1000000
@@ -161,7 +160,7 @@ class MeterAgent(MarketAgent):
     def reservation_callback(self, timestamp, market_name, buyer_seller):
         pass
 
-    def off_callback(self, timestamp, market_name, buyer_seller):
+    def offer_callback(self, timestamp, market_name, buyer_seller):
         curve = self.create_supply_curve()
         success, message = self.make_offer(self.market_name, SELLER, curve)
 
