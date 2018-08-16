@@ -102,14 +102,15 @@ def vav_agent(config_path, **kwargs):
 #    c2 = config.get('c2', 0)
 #    c3 = config.get('c3', 0)
 #    c4 = config.get('c4', 0)
-    c=config.get('c', 4000000)
-    r=config.get('r', 0.002)
-    shgc=config.get('shgc', 0.5)
-    tMinAdj = config.get('tMin', 0)    
+    c = config.get('c', 4000000)
+    r = config.get('r', 0.002)
+    shgc = config.get('shgc', 0.5)
+
     tMinAdj = config.get('tMin', 0)
     tMaxAdj = config.get('tMax', 0)
     mDotMin = config.get('mDotMin', 0)
     mDotMax = config.get('mDotMax', 0)
+
     sim_flag = config.get('sim_flag', False)
     tIn = config.get('tIn', 0)
     nonResponsive = config.get('nonResponsive', False)
@@ -120,7 +121,7 @@ def vav_agent(config_path, **kwargs):
     parent_device_points = config.get("parent_device_points")
     setpoint = config.get('setpoint')
     activate_topic = "/".join([config.get("building", agent_name), "actuate"])
-    setpoint_mode = config.get("setpoint_mode", 0)
+
     setpoint_mode = config.get("setpoint_mode", 0)
     modelName= config.get("modelName")
     parent_device_topic = topics.DEVICES_VALUE(campus=config.get("campus", ""),
@@ -146,7 +147,7 @@ def vav_agent(config_path, **kwargs):
                     tIn, nonResponsive, verbose_logging, device_topic,
                     device_points, parent_device_topic, parent_device_points,
                     base_rpc_path, activate_topic, actuator, mode, setpoint_mode,
-                    sim_flag,modelName,c,r,shgc, **kwargs)
+                    sim_flag, modelName, c, r, shgc, **kwargs)
 
 
 def temp_f2c(rawtemp):
@@ -171,7 +172,7 @@ def ease(target, current, limit):
     return current - np.sign(current - target) * min(abs(current - target), abs(limit))
 
 
-class VAVAgent(MarketAgent, FirstOrderZone):
+class VAVAgent(MarketAgent, GrayBoxZone):
     """
     The SampleElectricMeterAgent serves as a sample of an electric meter that
     sells electricity for a single building at a fixed price.
@@ -209,10 +210,10 @@ class VAVAgent(MarketAgent, FirstOrderZone):
         self.mode = mode
         self.nonResponsive = nonResponsive
         self.sim_flag = sim_flag
-        self.c=c
-        self.r=r
-        self.shgc=shgc
-        self.modelName=modelName
+        self.c = c
+        self.r = r
+        self.shgc = shgc
+        self.modelName = modelName
         if self.sim_flag:
             self.actuate_enabled = 1
         else:
@@ -384,7 +385,6 @@ class VAVAgent(MarketAgent, FirstOrderZone):
         return q
 
     def get_q_max(self):
-        #        t = self.clamp(self.temp_stpt-self.tDel, self.tMinAdj, self.tMaxAdj)
         t = self.tMinAdj
         q = clamp(self.getQ(t), self.qMax, self.qMin)
         return q

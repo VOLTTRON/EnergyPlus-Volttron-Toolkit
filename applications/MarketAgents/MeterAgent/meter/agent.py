@@ -96,25 +96,13 @@ def meter_agent(config_path, **kwargs):
         _log.info("Using defaults for starting configuration.")
     agent_name = config.get("agent_name", "meter")
     market_name = config.get('market_name', 'electric')
-    price = config.get('price', 55)
-    price_file = config.get('price_file', None)
-    if price_file is not None:
-        f=open(price_file,'r')
-        prices = f.readlines()
-        f.close()
-    else:
-        prices = None
- 
-    demand_limit = config.get('demand_limit', False)
-    demand_limit_threshold = config.get("demand_limit_threshold", None)
+    price = config.get('price')
+    building_name = config.get("building", "")
+    incoming_price_topic = config.get("price_topic")
+    base_demand_topic = "/".join([building_name, "demand"])
+
     verbose_logging = config.get('verbose_logging', True)
-    building_topic = topics.DEVICES_VALUE(campus=config.get("campus", ""),
-                                          building=config.get("building", ""),
-                                          unit=None,
-                                          path="",
-                                          point="all")
-    devices = config.get("devices")
-    return MeterAgent(agent_name, market_name, price, prices,verbose_logging, demand_limit, demand_limit_threshold, building_topic, devices, **kwargs)
+    return MeterAgent(agent_name, market_name, price, verbose_logging, incoming_price_topic, base_demand_topic, **kwargs)
 
 
 class MeterAgent(MarketAgent):
@@ -123,32 +111,25 @@ class MeterAgent(MarketAgent):
     sells electricity for a single building at a fixed price.
     """
 
-    def __init__(self, agent_name, market_name, price, prices,verbose_logging, demand_limit, demand_limit_threshold, building_topic, devices, **kwargs):
+    def __init__(self, agent_name, market_name, price,verbose_logging, incoming_price_topic, base_demand_topic,**kwargs):
         super(MeterAgent, self).__init__(verbose_logging, **kwargs)
         self.market_name = market_name
         self.price = price
-        self.prices = prices
-        self.price_index=0
+
         self.price_min = 10.
         self.price_max = 100.
         self.infinity = 1000000
         self.num = 0
-        self.power_aggregation = []
-        self.current_power = None
-        self.demand_limit = demand_limit
-        self.demand_limit_threshold = demand_limit_threshold
-        self.want_reservation = False
-        self.demand_aggregation_o = {}
-        self.demand_aggregation_master = {}
-        self.demand_aggregation_working = {}
+        self.incoming_price_topic = incoming_price_topic
+        self.base_demand_topic = base_demand_topic
         self.agent_name = agent_name
-        self.join_market(self.market_name, SELLER, self.reservation_callback, None,
-                         self.aggregate_callback, self.price_callback, self.error_callback)
-        self.building_topic = building_topic
-        self.devices = devices
-        self.file='/home/vuser/volttron/eplus/tccpower.csv'
-        f=open(self.file,'w')
-        f.close()
+        if price is None:
+            self.join_market(self.market_name, SELLER, None, None,
+                             self.aggregate_callback, self.price_callback, self.error_callback)
+        else:
+            self.join_market(self.market_name, SELLER, None, self.offer_callback,
+                             None, self.price_callback, self.error_callback)
+
 
     @Core.receiver('onstart')
     def setup(self, sender, **kwargs):
@@ -158,136 +139,39 @@ class MeterAgent(MarketAgent):
         :param kwargs:
         :return:
         """
-        if 1:
-            for device, points in self.devices.items():
-                device_topic = self.building_topic(unit=device)
-                _log.debug('Subscribing to {}'.format(device_topic))
-                self.demand_aggregation_master[device_topic] = points
-                self.vip.pubsub.subscribe(peer='pubsub',
-                                          prefix=device_topic,
-                                          callback=self.aggregate_power)
-            self.demand_aggregation_working = self.demand_aggregation_master.copy()
-            _log.debug('Points are  {}'.format(self.demand_aggregation_working))
+        self.vip.pubsub.subscribe(peer='pubsub',
+                                  prefix=self.incoming_price_topic,
+                                  callback=self.update_price)
+
+    def update_price(self,peer, sender, bus, topic, headers, message):
+        _log.debug("{} - received new price for next control period.  price: {}".format(message))
+        self.price = message
+        curve = self.create_supply_curve()
+        success, message = self.make_offer(self.market_name, SELLER, curve)
+        _log.debug("{} - result of make offer: {} - message: {}".format(self.agent_name, success, message))
+
 
     def aggregate_callback(self, timestamp, market_name, buyer_seller, aggregate_demand):
+        _log.debug("{} - received aggregate electric demand.  curve: {}".format(aggregate_demand))
         if buyer_seller == BUYER and market_name == self.market_name:
-            _log.debug("{}: at ts {} min of aggregate curve : {}".format(self.agent_name,
-                                                                         timestamp,
-                                                                         aggregate_demand.points[0]))
-            _log.debug("{}: at ts {} max of aggregate curve : {}".format(self.agent_name,
-                                                                         timestamp,
-                                                                         aggregate_demand.points[len(aggregate_demand.points) - 1]))
-            if self.want_reservation:
-                curve = self.create_supply_curve()
-                _log.debug("{}: offer for {} as {} at {} - Curve: {}".format(self.agent_name,
-                                                                             market_name,
-                                                                             SELLER,
-                                                                             timestamp,
-                                                                             curve.points[0]))
-                success, message = self.make_offer(market_name, SELLER, curve)
-                _log.debug("{}: offer has {} - Message: {}".format(self.agent_name, success, message))
-            else:
-                _log.debug("{}: reservation not wanted for {} as {} at {}".format(self.agent_name,
-                                                                                  market_name,
-                                                                                  buyer_seller,
-                                                                                  timestamp))
-
-    def conversion_handler(self, conversion, point, data):
-        expr = parse_expr(conversion)
-        sym = symbols(point)
-        point_list = [(point, data[point])]
-        return float(expr.subs(point_list))
-
-    def aggregate_power(self, peer, sender, bus, topic, headers, message):
-        """
-        Power measurements for devices are aggregated.
-        :param peer:
-        :param sender:
-        :param bus:
-        :param topic:
-        :param headers:
-        :param message:
-        :return:
-        """
-        _log.debug("{}: received topic for power aggregation: {}".format(self.agent_name,
-                                                                         topic))
-        data = message[0]
-        try:
-            #_log.debug("Power check 2: {}".format(self.demand_aggregation_working))
-            #_log.debug("Power check 4: {}".format(self.demand_aggregation_master))
-            current_points = self.demand_aggregation_working.pop(topic)
-        except KeyError:
-            #_log.debug("Received duplicate topic for aggregation: {}".format(topic))
-            if self.power_aggregation:
-                self.current_power = sum(self.power_aggregation)
-            else:
-                self.current_power = 0.
-            self.demand_aggregation_working = self.demand_aggregation_master.copy()
-         
-        conversion = current_points.get("conversion")
-        for point in current_points.get("points", []):
-            if conversion is not None:
-                value = float(self.conversion_handler(conversion, point, data))
-            else:
-                value = float(data[point])
-            self.power_aggregation.append(value)
-        #_log.debug("Power aggregation: {}".format( self.power_aggregation))
-        #_log.debug("Power check: {}".format(self.demand_aggregation_working))
-        if not self.demand_aggregation_working:
-            if self.power_aggregation:
-                self.current_power = sum(self.power_aggregation)
-
-            else:
-                self.current_power = 0.
-            self.power_aggregation = []
-            self.demand_aggregation_working = self.demand_aggregation_master.copy()
-            _log.debug("Power check: {}".format(self.demand_aggregation_working))
-            f=open(self.file,'a')
-            f.writelines(str(self.current_power)+'\n')
-            f.close()
-
-        _log.debug("{}: updating power aggregation: {}".format(self.agent_name,
-                                                           self.current_power))
-  
+            for i in xrange(len(aggregate_demand)):
+                demand_topic = self.base_demand_topic + str(i)
+                message = aggregate_demand[i]
+                headers = {}
+                self.vip.pubsub.publish(self, peer='pubsub', topic=demand_topic, message=message, headers=headers)
 
     def reservation_callback(self, timestamp, market_name, buyer_seller):
-        if self.demand_limit and self.current_power is not None:
-            if self.current_power > self.demand_limit_threshold:
-            #if self.current_power > 600:
-                _log.debug("current power".format())
-                self.want_reservation = True
+        pass
 
-            else:
-                self.want_reservation = False
-        else:
-            self.want_reservation = True
-        _log.debug("{}: wants reservation is {} for {} as {} at {}".format(self.agent_name,
-                                                                           self.want_reservation,
-                                                                           market_name,
-                                                                           buyer_seller,
-                                                                           timestamp))
-        return self.want_reservation
+    def off_callback(self, timestamp, market_name, buyer_seller):
+        curve = self.create_supply_curve()
+        success, message = self.make_offer(self.market_name, SELLER, curve)
 
     def create_supply_curve(self):
         supply_curve = PolyLine()
-
-        if self.demand_limit:
-            min_price = self.price_min
-            max_price = self.price_max
-            supply_curve.add(Point(price=min_price, quantity=self.demand_limit_threshold))
-            supply_curve.add(Point(price=max_price, quantity=self.demand_limit_threshold))
-        else:
-            if self.prices is None:
-                price = self.price
-            elif self.price_index < len(self.prices) - 1:
-                price = float(self.prices[self.price_index])
-                self.price_index = self.price_index + 1
-            else:
-                self.price_index = 0
-                price = float(self.prices[self.price_index])
-
-            supply_curve.add(Point(price=price, quantity=self.infinity))
-            supply_curve.add(Point(price=price, quantity=0.0))
+        price = self.price if self.price is not None else 0.0
+        supply_curve.add(Point(price=price, quantity=self.infinity))
+        supply_curve.add(Point(price=price, quantity=0.0))
        
         return supply_curve
 

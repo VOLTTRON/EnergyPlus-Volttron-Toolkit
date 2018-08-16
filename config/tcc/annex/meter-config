@@ -1,0 +1,7 @@
+{
+	"market_name": "electric",
+	"building": "3820A",
+	"agent_name": "meter",
+	"price_topic": "3820A/UpdatePrice",
+	"price": 55
+}
