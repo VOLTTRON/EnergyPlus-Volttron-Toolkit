@@ -181,8 +181,9 @@ class VAVAgent(MarketAgent, GrayBoxZone):
     def __init__(self, market_name, agent_name,
                  tMinAdj, tMaxAdj, mDotMin, mDotMax, tIn, nonResponsive, verbose_logging,
                  device_topic, device_points, parent_device_topic, parent_device_points,
-                 base_rpc_path, activate_topic, actuator, mode, setpoint_mode, sim_flag, modelName,c,r,shgc, **kwargs):
+                 base_rpc_path, activate_topic, actuator, mode, setpoint_mode, sim_flag, modelName, c, r, shgc, **kwargs):
         super(VAVAgent, self).__init__(verbose_logging, **kwargs)
+        GrayBoxZone.__init__(self)
         self.market_name = market_name
         self.agent_name = agent_name
         self.hvac_avail = 0
@@ -204,6 +205,7 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         self.qHvacSens = self.zone_airflow * 1006. * (self.zone_datemp - self.tIn)
         self.qMin = min(0, self.mDotMin * 1006. * (self.zone_datemp - self.tIn))
         self.qMax = min(0, self.mDotMax * 1006. * (self.zone_datemp - self.tIn))
+        self.model = None
 
         self.default = None
         self.actuator = actuator
