@@ -12,9 +12,10 @@
 	"tMax": 25.0,
 	"mDotMin":0.02359737,
 	"mDotMax": 0.200578,
-    "r": 0.002,
-    "c": 4000000,
-    "shgc": 0.5,
+    "r": 0.042231351889581,
+    "c": 835834.5801,
+    "shgc": 3.179604599,
+    "modelName": "~/volttron/TestModels_MPC_R1C1HeatCool.fmu",
 
 	"device_points": {
         "zone_dat": "ZoneDischargeAirTemperature",
