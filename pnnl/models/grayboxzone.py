@@ -1,6 +1,13 @@
 from pyfmi import load_fmu
 import numpy as np
 
+from volttron.platform.agent import utils
+import logging
+
+_log = logging.getLogger(__name__)
+utils.setup_logging()
+__version__ = "0.1"
+
 class GrayBoxZone(object):
     def __init__(self, modelname):
         self.tOut = 20.
@@ -16,6 +23,7 @@ class GrayBoxZone(object):
         self.modelName = "TestModels_MPC_R1C1HeatCool.fmu"
 
     def create_model(self):
+        _log.debug("Create model: {} - C: {} - R: {} - SHGC: {}".format(self.modelName, self.c, self.r, self.shgc))
         self.model = load_fmu(self.modelName)
         self.model.set('C', self.c)
         self.model.set('R', self.r)
@@ -40,16 +48,16 @@ class GrayBoxZone(object):
         else:
             q = self.qMax
         input = self.prepareInput(q)
-        res = self.model.simulate(input=(['QHeaCoo', 'weaTDryBul', 'weaHGloHor'], input), start_time = 0, final_time=360)
+        res = self.model.simulate(input=(['QHeaCoo', 'weaTDryBul', 'weaHGloHor'], input), start_time=0, final_time=360)
         while res['Tzone'][-1] > T_new and q >= self.qMin-abs(self.qMax -self.qMin)/10:
             q = q + abs(self.qMax - self.qMin)/10
-            res = self.model.simulate(input=(['QHeaCoo','weaTDryBul','weaHGloHor'], input), start_time = 0, final_time=360)
+            res = self.model.simulate(input=(['QHeaCoo','weaTDryBul','weaHGloHor'], input), start_time=0, final_time=360)
         return q
 
     def getT(self, qHvac):
         input = self.prepareInput(qHvac)
         self.model.set('T0', self.tIn)
-        res = self.model.simulate(input=(['QHeaCoo','weaTDryBul','weaHGloHor'], input), start_time = 0, final_time=360)
+        res = self.model.simulate(input=(['QHeaCoo','weaTDryBul','weaHGloHor'], input), start_time=0, final_time=360)
         return res['Tzone'][-1]
 
 
