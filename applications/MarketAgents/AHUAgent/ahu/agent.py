@@ -179,7 +179,8 @@ class AHUAgent(MarketAgent, AhuChiller):
         _log.debug("Subscribing topic: {}".format(self.device_topic))
         self.vip.pubsub.subscribe(peer='pubsub',
                                   prefix=self.device_topic,
-                                  callback=self.update_state)
+                                  callback=self.update_state,
+                                  all_platforms=True)
 
     def air_aggregate_callback(self, timestamp, market_name, buyer_seller, aggregate_air_demand):
         if buyer_seller == BUYER:

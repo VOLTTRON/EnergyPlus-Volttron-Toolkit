@@ -249,15 +249,18 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         _log.debug('Subscribing to device' + self.device_topic)
         self.vip.pubsub.subscribe(peer='pubsub',
                                   prefix=self.device_topic,
-                                  callback=self.update_zone_state)
+                                  callback=self.update_zone_state,
+                                  all_platforms=True)
         _log.debug('Subscribing to parent' + self.parent_device_topic)
         self.vip.pubsub.subscribe(peer='pubsub',
                                   prefix=self.parent_device_topic,
-                                  callback=self.update_state)
+                                  callback=self.update_state,
+                                  all_platforms=True)
         _log.debug('Subscribing to ' + self.activate_topic)
         self.vip.pubsub.subscribe(peer='pubsub',
                                   prefix=self.activate_topic,
-                                  callback=self.update_actuation_state)
+                                  callback=self.update_actuation_state,
+                                  all_platforms=True)
 
     def offer_callback(self, timestamp, market_name, buyer_seller):
         result, message = self.make_offer(market_name, buyer_seller, self.create_demand_curve())
@@ -360,14 +363,14 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         _log.debug("Current actuation state: {} - '"
                    "update actuation state: {}".format(self.actuate_enabled, message))
         if not self.actuate_enabled and message:
-            self.default = self.vip.rpc.call(self.actuator, 'get_point', self.actuator_topic).get(timeout=10)
+            self.default = self.vip.rpc.call(self.actuator, 'get_point', self.actuator_topic, external_platform='3820A').get(timeout=10)
         self.actuate_enabled = message
         if not self.actuate_enabled:
             if self.mode == 1:
-                self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, None).get(timeout=10)
+                self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, None, external_platform='3820A').get(timeout=10)
             else:
                 if self.default is not None:
-                    self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, self.default).get(timeout=10)
+                    self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, self.default, external_platform='3820A').get(timeout=10)
 
     def update_setpoint(self):
         if self.p_clear is not None and not self.nonResponsive and self.hvac_avail:
@@ -418,7 +421,7 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         temp_stpt = self.temp_stpt - self.setpoint_offset
         if self.actuate_enabled:
             _log.debug("{} - setting {} with value {}".format(self.agent_name, self.actuator_topic, temp_stpt))
-            self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, temp_stpt).get(timeout=10)
+            self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, temp_stpt, external_platform='3820A').get(timeout=10)
 
 
 def main():
