@@ -6,6 +6,7 @@
 
 	"market_name": "air",
 	"agent_name": "vav1",
+	"mode": 1,
 	"tIn": 22.22,
 	"tMin": 19.444,
 	"tMax": 25.0,
