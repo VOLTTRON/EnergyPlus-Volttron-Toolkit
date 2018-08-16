@@ -41,7 +41,8 @@ class GrayBoxZone(object):
                           np.asarray(qarr).flatten()])
         return u
 
-    def getQ(self, T_new):        
+    def getQ(self, T_new):   
+        self.create_model()
         self.model.set('T0', self.tIn)
         if T_new > self.tIn:
             q = self.qMin
@@ -55,6 +56,7 @@ class GrayBoxZone(object):
         return q
 
     def getT(self, qHvac):
+        self.create_model()
         input = self.prepareInput(qHvac)
         self.model.set('T0', self.tIn)
         res = self.model.simulate(input=(['QHeaCoo','weaTDryBul','weaHGloHor'], input), start_time=0, final_time=360)
