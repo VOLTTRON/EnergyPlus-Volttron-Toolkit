@@ -59,11 +59,9 @@
 import sys
 import logging
 from collections import defaultdict
-from sympy import symbols
-from sympy.parsing.sympy_parser import parse_expr
 from volttron.platform.vip.agent import Agent, Core
 from volttron.platform.agent import utils
-from volttron.platform.agent.math_utils import mean
+
 from volttron.platform.messaging import topics
 from volttron.platform.agent.base_market_agent import MarketAgent
 from volttron.platform.agent.base_market_agent.poly_line import PolyLine
