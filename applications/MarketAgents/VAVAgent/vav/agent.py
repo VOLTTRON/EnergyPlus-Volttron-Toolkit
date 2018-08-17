@@ -429,7 +429,10 @@ class VAVAgent(MarketAgent, GrayBoxZone):
                 self.actuate_setpoint()
 
     def actuate_setpoint(self):
-        temp_stpt = self.temp_stpt - self.setpoint_offset
+        if not self.sim_flag:
+             temp_stpt = temp_f2c(self.temp_stpt) - self.setpoint_offset
+        else:
+            temp_stpt = self.temp_stpt - self.setpoint_offset
         if self.actuate_enabled:
             _log.debug("{} - setting {} with value {}".format(self.agent_name, self.actuator_topic, temp_stpt))
             self.vip.rpc.call(self.actuator, 'set_point', self.agent_name, self.actuator_topic, temp_stpt, external_platform='3820A').get(timeout=10)

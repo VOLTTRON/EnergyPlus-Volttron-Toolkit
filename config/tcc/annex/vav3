@@ -28,6 +28,11 @@
         "outdoor_air_temperature": "OutdoorAirTemperature"
     },
 
-    "setpoint": "EffectiveCoolingTemperatureSetPoint",
+    "setpoint": "ZoneTemperatureSetPoint",
+    "setpoint_mode": {
+        "point": "OccupancyMode",
+        "true_value": 2.0,
+        "false_value": 2.0
+    },
     "sim_flag": false
 }
