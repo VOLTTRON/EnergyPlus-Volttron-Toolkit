@@ -11,10 +11,10 @@
         "return_air_temperature": "ReturnAirTemperature",
         "supply_air_temperature": "DischargeAirTemperature"
     },
-	"c0": 1.13171871494e-05,
-	"c1": 0.127759463091,
-	"c2": -0.00707667583844,
-	"c3": 0.0071951404029,
-	"COP" : 6.16,
+	"c0": 0,
+	"c1": 0.7242,
+	"c2": -1.277778,
+	"c3": 1.0443,
+	"COP" : 8,
 	"sim" : false
 }
