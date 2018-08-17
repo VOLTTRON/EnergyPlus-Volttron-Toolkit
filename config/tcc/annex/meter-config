@@ -3,5 +3,5 @@
 	"building": "3820A",
 	"agent_name": "meter",
 	"price_topic": "3820A/UpdatePrice",
-	"price": 55
+	"price": 85
 }

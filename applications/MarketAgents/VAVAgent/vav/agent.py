@@ -430,7 +430,7 @@ class VAVAgent(MarketAgent, GrayBoxZone):
 
     def actuate_setpoint(self):
         if not self.sim_flag:
-             temp_stpt = temp_f2c(self.temp_stpt) - self.setpoint_offset
+             temp_stpt = temp_c2f(self.temp_stpt) - self.setpoint_offset
         else:
             temp_stpt = self.temp_stpt - self.setpoint_offset
         if self.actuate_enabled:
