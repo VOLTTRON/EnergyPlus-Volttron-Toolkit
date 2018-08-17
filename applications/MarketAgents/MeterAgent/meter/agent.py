@@ -97,7 +97,7 @@ def meter_agent(config_path, **kwargs):
     price = config.get('price')
     building_name = config.get("building", "")
     incoming_price_topic = config.get("price_topic")
-    base_demand_topic = "/".join([building_name, "demand"])
+    base_demand_topic = building_name
 
     verbose_logging = config.get('verbose_logging', True)
     return MeterAgent(agent_name, market_name, price, verbose_logging, incoming_price_topic, base_demand_topic,
@@ -121,6 +121,7 @@ class MeterAgent(MarketAgent):
         self.num = 0
         self.incoming_price_topic = incoming_price_topic
         self.base_demand_topic = base_demand_topic
+        self.demand_topic = ["quantity", "price"]
         self.agent_name = agent_name
         if price is not None:
             self.join_market(self.market_name, SELLER, None, None,
@@ -142,7 +143,7 @@ class MeterAgent(MarketAgent):
                                   callback=self.update_price)
 
     def update_price(self, peer, sender, bus, topic, headers, message):
-        _log.debug("{} - received new price for next control period.  price: {}".format(message))
+        _log.debug("{} - received new price for next control period.  price: {}".format(self.agent_name, self.message))
         self.price = message
         curve = self.create_supply_curve()
         success, message = self.make_offer(self.market_name, SELLER, curve)
@@ -153,11 +154,14 @@ class MeterAgent(MarketAgent):
             _log.debug(
                 "{} - received aggregate electric demand.  curve: {}".format(self.agent_name, aggregate_demand.points))
             electric_demand = aggregate_demand.points
+            headers = {}
             for i in xrange(len(electric_demand)):
                 demand_topic = self.base_demand_topic + str(i)
-                message = electric_demand[i].tuppleize()
-                headers = {}
-                self.vip.pubsub.publish(peer='pubsub', topic=demand_topic, message=message, headers=headers)
+                demand_tuple = electric_demand[i].tuppleize()
+                for j in xrange(len(demand_tuple)):
+                    demand_topic = "/".join([self.base_demand_topic, self.demand_topic[j]]) + "_" + str(i)
+                    message = demand_tuple[j]
+                    self.vip.pubsub.publish(peer='pubsub', topic=demand_topic, message=message, headers=headers)
 
     def reservation_callback(self, timestamp, market_name, buyer_seller):
         pass
