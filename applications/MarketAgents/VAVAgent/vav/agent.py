@@ -67,6 +67,7 @@ from volttron.platform.agent.base_market_agent.point import Point
 from volttron.platform.agent.base_market_agent.buy_sell import BUYER
 from pnnl.models.grayboxzone import GrayBoxZone
 import numpy as np
+from gevent import sleep
 import os
 
 _log = logging.getLogger(__name__)
@@ -293,6 +294,7 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         p_min = 10.
         p_max = 100.
         qMin = abs(self.get_q_min())
+        sleep(2)
         qMax = abs(self.get_q_max())
         if self.hvac_avail:
             self.demand_curve.add(Point(price=max(p_min, p_max), quantity=min(qMin, qMax)))
