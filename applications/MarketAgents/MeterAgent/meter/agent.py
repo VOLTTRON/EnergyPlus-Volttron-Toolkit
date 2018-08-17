@@ -123,7 +123,7 @@ class MeterAgent(MarketAgent):
         self.base_demand_topic = base_demand_topic
         self.demand_topic = ["quantity", "price"]
         self.agent_name = agent_name
-        if price is not None:
+        if price is None:
             self.join_market(self.market_name, SELLER, None, None,
                              self.aggregate_callback, self.price_callback, self.error_callback)
         else:
@@ -144,7 +144,7 @@ class MeterAgent(MarketAgent):
 
     def update_price(self, peer, sender, bus, topic, headers, message):
         _log.debug("{} - received new price for next control period.  price: {}".format(self.agent_name, self.message))
-        self.price = message
+        self.price = float(message[0])
         curve = self.create_supply_curve()
         success, message = self.make_offer(self.market_name, SELLER, curve)
         _log.debug("{} - result of make offer: {} - message: {}".format(self.agent_name, success, message))
@@ -156,7 +156,6 @@ class MeterAgent(MarketAgent):
             electric_demand = aggregate_demand.points
             headers = {}
             for i in xrange(len(electric_demand)):
-                demand_topic = self.base_demand_topic + str(i)
                 demand_tuple = electric_demand[i].tuppleize()
                 for j in xrange(len(demand_tuple)):
                     demand_topic = "/".join([self.base_demand_topic, self.demand_topic[j]]) + "_" + str(i)
