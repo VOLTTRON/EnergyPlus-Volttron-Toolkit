@@ -410,9 +410,9 @@ class VAVAgent(MarketAgent, GrayBoxZone):
             self.update_actuation_state(None, None, None, None, None, 0)
             return
         if self.p_clear is not None:
-                      self.update_setpoint()
-                      _log.debug("New set point is {}".format(self.temp_stpt))
-                      self.actuate_setpoint()
+            self.update_setpoint()
+            _log.debug("New set point is {}".format(self.temp_stpt))
+            self.actuate_setpoint()
 
     def error_callback(self, timestamp, market_name, buyer_seller, error_code, error_message, aux):
         _log.debug("{} - error for Market: {} {}, Message: {}".format(self.agent_name,

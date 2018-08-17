@@ -100,7 +100,8 @@ def meter_agent(config_path, **kwargs):
     base_demand_topic = "/".join([building_name, "demand"])
 
     verbose_logging = config.get('verbose_logging', True)
-    return MeterAgent(agent_name, market_name, price, verbose_logging, incoming_price_topic, base_demand_topic, **kwargs)
+    return MeterAgent(agent_name, market_name, price, verbose_logging, incoming_price_topic, base_demand_topic,
+                      **kwargs)
 
 
 class MeterAgent(MarketAgent):
@@ -109,7 +110,8 @@ class MeterAgent(MarketAgent):
     sells electricity for a single building at a fixed price.
     """
 
-    def __init__(self, agent_name, market_name, price, verbose_logging, incoming_price_topic, base_demand_topic,**kwargs):
+    def __init__(self, agent_name, market_name, price, verbose_logging, incoming_price_topic, base_demand_topic,
+                 **kwargs):
         super(MeterAgent, self).__init__(verbose_logging, **kwargs)
         self.market_name = market_name
         self.price = price
@@ -120,13 +122,12 @@ class MeterAgent(MarketAgent):
         self.incoming_price_topic = incoming_price_topic
         self.base_demand_topic = base_demand_topic
         self.agent_name = agent_name
-        if price is None:
+        if price is not None:
             self.join_market(self.market_name, SELLER, None, None,
                              self.aggregate_callback, self.price_callback, self.error_callback)
         else:
             self.join_market(self.market_name, SELLER, None, self.offer_callback,
                              None, self.price_callback, self.error_callback)
-
 
     @Core.receiver('onstart')
     def setup(self, sender, **kwargs):
@@ -140,22 +141,23 @@ class MeterAgent(MarketAgent):
                                   prefix=self.incoming_price_topic,
                                   callback=self.update_price)
 
-    def update_price(self,peer, sender, bus, topic, headers, message):
+    def update_price(self, peer, sender, bus, topic, headers, message):
         _log.debug("{} - received new price for next control period.  price: {}".format(message))
         self.price = message
         curve = self.create_supply_curve()
         success, message = self.make_offer(self.market_name, SELLER, curve)
         _log.debug("{} - result of make offer: {} - message: {}".format(self.agent_name, success, message))
 
-
     def aggregate_callback(self, timestamp, market_name, buyer_seller, aggregate_demand):
-        _log.debug("{} - received aggregate electric demand.  curve: {}".format(aggregate_demand))
         if buyer_seller == BUYER and market_name == self.market_name:
-            for i in xrange(len(aggregate_demand)):
+            _log.debug(
+                "{} - received aggregate electric demand.  curve: {}".format(self.agent_name, aggregate_demand.points))
+            electric_demand = aggregate_demand.points
+            for i in xrange(len(electric_demand)):
                 demand_topic = self.base_demand_topic + str(i)
-                message = aggregate_demand[i]
+                message = electric_demand[i].tuppleize()
                 headers = {}
-                self.vip.pubsub.publish(self, peer='pubsub', topic=demand_topic, message=message, headers=headers)
+                self.vip.pubsub.publish(peer='pubsub', topic=demand_topic, message=message, headers=headers)
 
     def reservation_callback(self, timestamp, market_name, buyer_seller):
         pass
@@ -169,7 +171,7 @@ class MeterAgent(MarketAgent):
         price = self.price if self.price is not None else 0.0
         supply_curve.add(Point(price=price, quantity=self.infinity))
         supply_curve.add(Point(price=price, quantity=0.0))
-       
+
         return supply_curve
 
     def price_callback(self, timestamp, market_name, buyer_seller, price, quantity):
