@@ -45,14 +45,16 @@ class GrayBoxZone(object):
 
         if T_new > self.tIn:
             q = self.qMin
+            s=-1
         else:
             q = self.qMax
+            s=1
         input = self.prepareInput(q)
         self.create_model()
         self.model.set('T0', self.tIn)
         res = self.model.simulate(input=(['QHeaCoo', 'weaTDryBul', 'weaHGloHor'], input), start_time=0, final_time=360)
-        while res['Tzone'][-1] > T_new and q >= self.qMin-abs(self.qMax -self.qMin)/10:
-            q = q + abs(self.qMax - self.qMin)/10
+        while abs(res['Tzone'][-1] - T_new)>0.5 and (q > self.qMax and q < self.qMin):
+            q = q + s*abs(self.qMax - self.qMin)/10
             self.create_model()
             self.model.set('T0', self.tIn)
             input = self.prepareInput(q)
