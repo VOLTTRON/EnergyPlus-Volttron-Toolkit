@@ -151,8 +151,7 @@ class MeterAgent(MarketAgent):
 
     def aggregate_callback(self, timestamp, market_name, buyer_seller, aggregate_demand):
         if buyer_seller == BUYER and market_name == self.market_name:
-            _log.debug(
-                "{} - received aggregate electric demand.  curve: {}".format(self.agent_name, aggregate_demand.points))
+            _log.debug( "{} - received aggregate electric demand.  curve: {}".format(self.agent_name, aggregate_demand.points))
             electric_demand = aggregate_demand.points
             headers = {}
             for i in xrange(len(electric_demand)):
