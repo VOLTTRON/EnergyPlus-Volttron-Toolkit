@@ -157,7 +157,11 @@ class MeterAgent(MarketAgent):
                 demand_tuple = electric_demand[i].tuppleize()
                 for j in xrange(len(demand_tuple)):
                     demand_topic = "/".join(["fncs/input", self.base_demand_topic, self.demand_topic[j]]) + "_" + str(i)
-                    message = demand_tuple[j]
+                    if j == 0 and i > 0:
+                        message = demand_tuple[j] - prev_demand_tuple[j]
+                    else:
+                        message = demand_tuple[j]
+                    prev_demand_tuple = demand_tuple
                     self.vip.pubsub.publish(peer='pubsub', topic=demand_topic, message=message, headers=headers)
 
     def reservation_callback(self, timestamp, market_name, buyer_seller):
