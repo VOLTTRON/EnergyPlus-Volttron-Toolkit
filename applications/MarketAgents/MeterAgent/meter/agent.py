@@ -143,7 +143,7 @@ class MeterAgent(MarketAgent):
 
     def update_price(self, peer, sender, bus, topic, headers, message):
         _log.debug("{} - received new price for next control period.  price: {}".format(self.agent_name, message))
-        self.price = message
+        self.price = message[0]
         curve = self.create_supply_curve()
         success, message = self.make_offer(self.market_name, SELLER, curve)
         _log.debug("{} - result of make offer: {} - message: {}".format(self.agent_name, success, message))
