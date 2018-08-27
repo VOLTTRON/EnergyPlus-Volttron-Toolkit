@@ -112,6 +112,8 @@ def vav_agent(config_path, **kwargs):
     tMaxAdj = config.get('tMax', 0)
     mDotMin = config.get('mDotMin', 0)
     mDotMax = config.get('mDotMax', 0)
+    p_min = config.get('minimum_price', 5.0)
+    p_max = config.get('maximum_price', 50.0)
 
     sim_flag = config.get('sim_flag', False)
     tIn = config.get('tIn', 0)
@@ -149,7 +151,7 @@ def vav_agent(config_path, **kwargs):
                     tIn, nonResponsive, verbose_logging, device_topic,
                     device_points, parent_device_topic, parent_device_points,
                     base_rpc_path, activate_topic, actuator, mode, setpoint_mode,
-                    sim_flag, modelName, c, r, shgc, **kwargs)
+                    sim_flag, modelName, c, r, shgc, p_min, p_max, **kwargs)
 
 
 def temp_f2c(rawtemp):
@@ -183,7 +185,8 @@ class VAVAgent(MarketAgent, GrayBoxZone):
     def __init__(self, market_name, agent_name,
                  tMinAdj, tMaxAdj, mDotMin, mDotMax, tIn, nonResponsive, verbose_logging,
                  device_topic, device_points, parent_device_topic, parent_device_points,
-                 base_rpc_path, activate_topic, actuator, mode, setpoint_mode, sim_flag, modelName, c, r, shgc, **kwargs):
+                 base_rpc_path, activate_topic, actuator, mode, setpoint_mode, sim_flag, modelName, c, r, shgc,
+                 p_min, p_max, **kwargs):
         super(VAVAgent, self).__init__(verbose_logging, **kwargs)
         self.market_name = market_name
         self.agent_name = agent_name
@@ -245,7 +248,8 @@ class VAVAgent(MarketAgent, GrayBoxZone):
         self.zone_datemp_name = device_points.get("zone_dat", "ZoneDischargeAirTemperature")
         self.zone_airflow_name = device_points.get("zone_airflow", "ZoneAirFlow")
         self.zone_temp_name = device_points.get("zone_temperature", "ZoneTemperature")
-
+        self.p_min = p_min
+        self.p_max = p_max
         self.join_market(self.market_name, BUYER, None, self.offer_callback, None, self.price_callback, self.error_callback)
 
     @Core.receiver('onstart')
@@ -291,17 +295,15 @@ class VAVAgent(MarketAgent, GrayBoxZone):
 
     def create_demand_curve(self):
         self.demand_curve = PolyLine()
-        p_min = 10.
-        p_max = 100.
         qMin = abs(self.get_q_min())
-        sleep(2)
+        sleep(1)
         qMax = abs(self.get_q_max())
         if self.hvac_avail:
-            self.demand_curve.add(Point(price=max(p_min, p_max), quantity=min(qMin, qMax)))
-            self.demand_curve.add(Point(price=min(p_min, p_max), quantity=max(qMin, qMax)))
+            self.demand_curve.add(Point(price=max(self.p_min, self.p_max), quantity=min(qMin, qMax)))
+            self.demand_curve.add(Point(price=min(self.p_min, self.p_max), quantity=max(qMin, qMax)))
         else:
-            self.demand_curve.add(Point(price=max(p_min, p_max), quantity=0.1))
-            self.demand_curve.add(Point(price=min(p_min, p_max), quantity=0.1))
+            self.demand_curve.add(Point(price=max(self.p_min, self.p_max), quantity=0.1))
+            self.demand_curve.add(Point(price=min(self.p_min, self.p_max), quantity=0.1))
         if self.hvac_avail:
             _log.debug("{} - Tout {} - Tin {} - q {}".format(self.agent_name, self.tOut, self.tIn, self.qHvacSens))
         return self.demand_curve
@@ -422,8 +424,12 @@ class VAVAgent(MarketAgent, GrayBoxZone):
                                                                       buyer_seller, aux))
         if self.actuate_enabled:
             if market_name == "electric":
-                if aux.get('SQx,DQn', 0) == -1:
+                if aux.get('SQx, DQn', 0) == -1 or aux.get('SPn, DPx', 0) == 1:
                     self.temp_stpt = self.tMaxAdj
+                    self.actuate_setpoint()
+                    return
+                if aux.get('SPx, DPn', 0) == -1:
+                    self.temp_stpt = self.tMinAdj
                     self.actuate_setpoint()
                     return
             if self.sim_flag:

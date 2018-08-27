@@ -16,5 +16,6 @@
 	"c2": -1.277778,
 	"c3": 1.0443,
 	"COP" : 8,
+	"minimum_price": 5.0,
 	"sim" : false
 }

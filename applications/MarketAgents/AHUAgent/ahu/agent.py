@@ -108,6 +108,7 @@ def ahu_agent(config_path, **kwargs):
                                         path="",
                                         point="all")
     verbose_logging = config.get('verbose_logging', True)
+    p_min = config.get('minimum_price', 5.0)
     return AHUAgent(air_market_name, electric_market_name, agent_name,
                     device_topic, c0, c1, c2, c3, COP, verbose_logging,
                     device_points, sim_flag, **kwargs)
@@ -129,7 +130,7 @@ class AHUAgent(MarketAgent, AhuChiller):
     """
 
     def __init__(self, air_market_name, electric_market_name, agent_name, device_topic, c0, c1, c2, c3, COP,
-                 verbose_logging, device_points, sim_flag, **kwargs):
+                 verbose_logging, device_points, sim_flag, p_min, **kwargs):
         super(AHUAgent, self).__init__(verbose_logging, **kwargs)
 
         self.air_market_name = air_market_name
@@ -173,6 +174,7 @@ class AHUAgent(MarketAgent, AhuChiller):
         self.buy_bid_curve = None
         self.old_price = None
         self.old_quantity = None
+        self.p_min = p_min
 
     @Core.receiver("onstart")
     def setup(self, sender, **kwargs):
@@ -192,8 +194,8 @@ class AHUAgent(MarketAgent, AhuChiller):
             else:
                 _log.debug("{}: offer for the {} was rejected".format(self.agent_name, market_name))
                 supply_curve = PolyLine()
-                supply_curve.add(Point(price=10, quantity=0.001))
-                supply_curve.add(Point(price=10, quantity=0.001))
+                supply_curve.add(Point(price=self.p_min, quantity=0.001))
+                supply_curve.add(Point(price=self.p_min, quantity=0.001))
                 success, message = self.make_offer(self.air_market_name, SELLER, supply_curve)
                 _log.debug("{}: offer for {} was accepted: {}".format(self.agent_name,
                                                                       self.air_market_name,
@@ -208,8 +210,8 @@ class AHUAgent(MarketAgent, AhuChiller):
             _log.debug("{}: agent making offer on air market".format(self.agent_name))
         else:
             supply_curve = PolyLine()
-            supply_curve.add(Point(price=10, quantity=0.1))
-            supply_curve.add(Point(price=10, quantity=0.1))
+            supply_curve.add(Point(price=self.p_min, quantity=0.1))
+            supply_curve.add(Point(price=self.p_min, quantity=0.1))
             success, message = self.make_offer(self.air_market_name, SELLER, supply_curve)
             if success:
                 _log.debug("price_check: just use the place holder")

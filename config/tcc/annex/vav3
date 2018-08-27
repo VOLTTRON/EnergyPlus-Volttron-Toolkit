@@ -34,5 +34,7 @@
         "true_value": 2.0,
         "false_value": 2.0
     },
+    "minimum_price": 5.0,
+    "maximum_price": 50.0,
     "sim_flag": false
 }
